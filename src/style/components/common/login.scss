@@ -1,0 +1,43 @@
+.login-container{
+    width: 40%;
+    margin: auto; 
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    text-align: center; 
+    .login-container-note{
+        display:block;
+        margin: 20px 0;
+    }
+    .phoneInput{
+        display:block;
+        margin: 20px auto; 
+        width: 100%;
+        padding: 10px 0 0 0;
+        border:none;
+        border-bottom: 1px solid rgba(128, 128, 128, 0.377);
+    }
+    .btn-login{
+        width:100%;
+        padding: 10px 20px;
+        border:none;
+        background-color: black;
+        color: white
+    }
+    .box-login-fb-gg{
+        margin: 10px 0;
+        .btn-login-fb{
+            border: none;
+            background-color: rgba(255, 235, 205, 0);
+            .fb-icon{
+                width: 30px;
+                height:30px;
+                object-fit: cover;
+            }
+        }
+    }
+    .item-login{
+        padding: 10px 0;
+    }
+}

@@ -1,0 +1,132 @@
+.bg-light{
+    height:fit-content;
+    .free-ship{
+        background-color: rgba(195,42,46,255);
+        .free-ship-content{
+            text-align: center;
+            color: rgb(230, 230, 230);
+            padding: 8px 0;
+            text-transform: uppercase;
+            font-size: 80%;
+            letter-spacing: 2px;
+            margin:0;
+        }
+    }
+    .navbar.navbar-expand-lg.navbar-light{
+        padding:0;
+        .container-nav{
+            width:99vw;
+            .box-nav.row{
+                display:flex;
+                justify-content: space-between;
+                padding: 0 40px;
+                align-items: center;
+                margin: 2px 0;
+                .logo-container {
+                    display: flex;
+                    justify-content: center; /* Căn giữa theo chiều ngang */
+                    align-items: center; /* Căn giữa theo chiều dọc (nếu cần) */
+                    height: 100%; /* Đảm bảo chiều cao đủ để căn giữa */
+                    .navbar-brand{
+                        
+                        .logo{
+                            width: 90px;
+                            height:auto;
+                            object-fit: cover;
+                        }
+                    }
+                }
+                
+                .collapse.navbar-collapse.col-md-10{
+                    justify-content: flex-end;
+                    .navbar-nav.ml-auto{
+                        align-items: center;
+                        .nav-item{
+                            text-transform: uppercase;
+                            font-size: 90%;
+                            font-weight: 500;
+                            a{
+                                padding: 20px 5px;
+                                margin: 0 15px;
+                                &:hover{
+                                    border-bottom: 1px solid black;
+                                }
+                            }
+                           
+                            .hightlight{
+                            color:rgba(220, 60, 70, 1) ;
+                            &:hover{
+                                border-bottom: 1px solid rgba(220, 60, 70, 1);
+                            }
+                            }
+                           
+                            
+                        }
+                        .dropdown {
+                            &:hover .sub-menu.megaMenu {
+                                display: block; /* Hiển thị sub-menu */
+                            }
+                        
+                            /* Ẩn sub-menu mặc định */
+                            .sub-menu.megaMenu {
+                                display: none; /* Ẩn sub-menu mặc định */
+                                position: absolute; /* Định vị sub-menu */
+                                width: 1300px; /* Đảm bảo sub-menu rộng bằng nav-item */
+                                left: -500px; /* Căn lề trái */
+                                border-top: none;
+                                top: 100%; /* Đưa sub-menu xuống dưới nav-item */
+                                padding: 15px 0;
+                                background-color: rgb(247, 247, 247); /* Màu nền của sub-menu */
+                                z-index: 1000; /* Đặt z-index để đảm bảo sub-menu hiển thị trên các phần khác */
+                            }
+                        
+                            /* Xóa dấu chấm ở tất cả các ul con */
+                            .sub-menu.megaMenu ul {
+                                list-style-type: none; /* Xóa dấu chấm */
+                                padding: 0; /* Xóa padding mặc định */
+                                margin: 0; /* Xóa margin mặc định */
+                            }
+                        
+                            /* Định dạng cho các li trong sub-menu */
+                            .sub-menu.megaMenu .sub-menu-data {
+                                padding: 0 15px; /* Padding cho các mục con */
+                                color: #333; /* Màu chữ mặc định */
+                                width: 20%;
+                                a {
+                                    padding: 10px; /* Padding cho link trong sub-menu */
+                                    display: block; /* Đảm bảo link chiếm toàn bộ chiều cao */
+                                    text-decoration: none;
+                                    color:#333;
+                        
+                                    &:hover {
+                                        background-color: rgb(247, 247, 247); /* Màu nền khi hover */
+                                    }
+                                }
+                        
+                                // Định dạng cho các li trong sub-menu
+                                ul {
+                                    li {
+                                        list-style-type: none; /* Xóa dấu chấm */
+                                        color: rgb(124, 124, 124);
+                                        margin: 10px;
+                                        padding: 0;
+                                        text-transform: capitalize;
+                                        font-weight: 400;
+                                    }
+                                }
+                            }
+                        }
+                        
+                        
+                        .search-box-container{
+                            width: 120px;
+                            margin: 0 10px;
+                        }
+                        
+                    }
+                }
+            }
+            
+        }
+    }
+}

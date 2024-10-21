@@ -1,0 +1,38 @@
+.signup-container{
+    width: 40%;
+    margin: auto;  
+    left: 50%; 
+    text-align: center; 
+    
+    .signup-container-title{
+        display:block;
+        margin: 20px 0;
+    }
+    .form-box {
+        .mb-3 {
+            text-align: left; // Đảm bảo căn trái cho toàn bộ khối
+
+            .form-label {
+                text-align: left; // Đảm bảo căn trái cho nhãn
+                display: block; // Đảm bảo nhãn chiếm toàn bộ chiều rộng
+                margin-bottom: 5px; // Khoảng cách giữa nhãn và input
+            }
+
+            .form-control {
+                border: none;
+                border-bottom: 1px solid rgba(126, 126, 126, 0.733);
+                border-radius: 0px;
+            }
+           
+        }
+        .d-grid.mt-4{
+            .btn.btn-primary{
+                background-color: black;
+                border: 1px solid black;
+            }
+        }
+    }
+    .item-signup-data{
+        margin: 20px 0 40px 0;
+    }
+}
