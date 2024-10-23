@@ -1,10 +1,32 @@
 // src/components/common/Header.js
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Đảm bảo đã import CSS của Bootstrap
 import "../../style/components/common/Header.scss";
-import SearchBar from "./SearchBar"
+import SearchBar from "./SearchBar";
+import { Dropdown } from 'react-bootstrap';
+import Cookies from 'js-cookie';
+import { useSelector } from 'react-redux';
 const Header = () => {
+    const user = useSelector((state) => state.user); // Lấy thông tin người dùng từ Redux store
+
+    // Kiểm tra xem người dùng đã đăng nhập chưa
+    const isLoggedIn = Cookies.get('isLoggedIn') === 'true';
+
+    const navigate = useNavigate(); // Khởi tạo useNavigate
+
+    const handleLogout = () => {
+        console.log('Đăng xuất');
+        Cookies.remove('isLoggedIn'); // Xóa cookie
+        navigate('/customer/sale-thuong-thuong'); // Chuyển hướng về trang mong muốn
+    };
+    const handleViewAccount = () => {
+        // Logic để xem chi tiết tài khoản
+        console.log('Xem chi tiết tài khoản');
+    };
+    const handleClick = () => {
+        navigate('/login'); // Chuyển hướng tới "/login"
+    };
     return (
         <header className="bg-light">
             <div className="free-ship">
@@ -99,8 +121,24 @@ const Header = () => {
                                 <li className="search-box-container">
                                     <SearchBar />
                                 </li>
-                                <li className="nav-item">
-                                    <div className="nav-link" > user & cart</div>
+                                <li className="nav-item end-nav">
+                                    {isLoggedIn ? (
+                                        // Nếu người dùng đã đăng nhập
+                                        <Dropdown>
+                                            <Dropdown.Toggle className="nav-link" id="user-dropdown">
+                                                {user.name || 'User'} {/* Hiển thị tên người dùng nếu có */}
+                                            </Dropdown.Toggle>
+
+                                            <Dropdown.Menu>
+                                                <Dropdown.Item onClick={handleViewAccount}>Xem chi tiết tài khoản</Dropdown.Item>
+                                                <Dropdown.Item onClick={handleLogout}>Đăng xuất</Dropdown.Item>
+                                            </Dropdown.Menu>
+                                        </Dropdown>
+                                    ) : (
+                                        // Nếu người dùng chưa đăng nhập
+                                        <div className="nav-link" onClick={handleClick}>User</div>
+                                    )}
+                                    <div className="nav-link">Cart</div>
                                 </li>
                             </ul>
                         </div>

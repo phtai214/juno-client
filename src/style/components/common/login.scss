@@ -1,16 +1,20 @@
 .login-container{
     width: 40%;
     margin: auto; 
-    position: absolute; 
-    top: 50%; 
-    left: 50%; 
-    transform: translate(-50%, -50%); 
     text-align: center; 
     .login-container-note{
         display:block;
         margin: 20px 0;
     }
     .phoneInput{
+        display:block;
+        margin: 20px auto; 
+        width: 100%;
+        padding: 10px 0 0 0;
+        border:none;
+        border-bottom: 1px solid rgba(128, 128, 128, 0.377);
+    }
+    .passwordInput{
         display:block;
         margin: 20px auto; 
         width: 100%;
@@ -27,6 +31,8 @@
     }
     .box-login-fb-gg{
         margin: 10px 0;
+        display:flex;
+        justify-content: center;
         .btn-login-fb{
             border: none;
             background-color: rgba(255, 235, 205, 0);
@@ -39,5 +45,9 @@
     }
     .item-login{
         padding: 10px 0;
+    }
+    .link-register{
+        text-decoration: none;
+        color:black;
     }
 }

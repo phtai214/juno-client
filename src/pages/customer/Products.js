@@ -4,6 +4,7 @@ import { fetchProducts } from '../../redux/slices/productSlice'; // Import fetch
 import "../../style/pages/customer/Product.scss";
 import fakeData from "../../fakeAPI";
 import { Link } from 'react-router-dom';
+import axios from "axios"
 const Products = () => {
     const dispatch = useDispatch();
     const { products, loading, error } = useSelector(state => state.products);

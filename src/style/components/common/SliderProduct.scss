@@ -1,0 +1,127 @@
+.slider-container{
+    margin: 20px auto;
+    width:81%;
+}
+.product-slider-flash-sale {
+    margin: 0;
+    padding: 0;
+
+    .product-slider-item {
+        height: max-content;
+        width: fit-content;
+        
+        .product-slider-image-box {
+            .product-slider-image {
+                position: relative;
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+            }
+            .product-slider-highlight {
+                position: absolute;
+                right: 5%;
+                top: 2%;
+                background-color: rgb(223, 28, 28);
+                color: white;
+                font-size: 13px;
+                font-weight: 500;
+                padding: 5px;
+                border-radius: 2px;
+            }
+        }
+        
+        .product-slider-title {
+            font-size: 16px;
+            white-space: nowrap;         
+            overflow: hidden;           
+            text-overflow: ellipsis;      
+            width: 100%;            
+            display: block;
+            padding: 5px;
+            text-align: center;
+            margin: 0;
+        }
+        
+        .product-slider-price {
+            text-align: center;
+            color: rgb(223, 28, 28);
+        }
+        
+        .btn-product-color {
+            margin: 20px auto 5px;
+            display: none;
+            justify-content: center;
+
+            .btn-color1 {
+                border: none;
+                background-color: black;
+                border-radius: 50%;
+                width: 20px;
+                height: 20px;
+                margin: 5px;
+            }
+            .btn-color2 {
+                border: none;
+                background-color: rgb(252, 202, 169);
+                border-radius: 50%;
+                width: 20px;
+                height: 20px;
+                margin: 5px;
+            }
+            .btn-color3 {
+                border: none;
+                background-color: rgb(122, 56, 26);
+                border-radius: 50%;
+                width: 20px;
+                height: 20px;
+                margin: 5px;
+            }
+        }
+
+        .btn-pay-flash-sale {
+            border: none;
+            width: 80%;
+            padding: 10px;
+            margin: 0 auto 10px ;
+            display: none;  
+            text-align: center;
+            background-color: rgb(223, 28, 28);
+            color: white;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        &:hover {
+            border:1px solid rgba(122, 122, 122, 0.336);
+            .btn-pay-flash-sale {
+                display: block;
+            }
+            .btn-product-color {
+                display: flex;
+            }
+        }
+    }
+
+    .swiper-pagination {
+        display: none; // Ẩn dot pagination
+    }
+    .swiper-button-next,
+    .swiper-button-prev {
+        color: rgb(0, 0, 0); 
+        top: 30%;    // Dịch nút lên phía trên
+        transform: scale(0.5); // Giảm kích thước của nút
+    }
+    .product-slider-link{
+        display: flex;
+        width: max-content;
+        text-decoration: none;
+        justify-content: center;
+        padding: 10px;
+        margin: 10px auto;
+        font-size: 20px;
+        color:rgb(97, 97, 97);
+        border-bottom: 1px solid rgb(51, 51, 51);
+
+    }
+    
+}

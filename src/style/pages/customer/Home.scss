@@ -1,0 +1,131 @@
+.home-container {
+    .Banner-homePage {
+      .swiper-button-next,
+      .swiper-button-prev {
+        color: rgb(0, 0, 0); 
+        
+      }
+  
+      .swiper-pagination-bullet {
+        background-color: rgb(255, 255, 255);  
+        width: 30px;
+        border-radius: 0;
+        height: 2px;
+        margin-bottom: 10px;
+      }
+  
+      .swiper-pagination-bullet-active {
+        background-color: black;  
+        width: 30px;
+        border-radius: 0;
+        height: 2px;
+      }
+    }
+    .FLASH-SALE{
+        margin: 40px 0;
+        .FLASH-SALE-title{
+            text-align: center;
+            font-size: 25px;
+        }
+       .box-banner-small{
+        display:flex;
+        justify-content: center;
+        .banner-small-image{
+            width:370px;
+            height:auto;
+            object-fit: cover;
+            padding: 5px;
+        }
+       }
+       .product-new{
+        width:84%;
+        padding-bottom: 30px;
+        margin:20px auto; 
+        border-bottom: 1px solid rgba(41, 41, 41, 0.356);
+        .product-new-title{
+            margin:0;
+            text-align: center;
+        }
+        .product-new-note{
+            margin:0;
+            text-align: center;
+        }
+        .product-new-box.row{
+            margin: 20px 0 ;
+            
+            padding:0;
+            .product-new-item.col-md-4 {
+                width: calc(25% - 10px);
+                margin: 5px;
+                .product-new-item-image{
+                    width:100%;
+                    height:auto;
+                    object-fit: cover;
+                }
+                .product-new-sp-title{
+                    margin: 10px 0 0 0 ;
+                    text-align: center; 
+                }
+                .product-new-sp-price{
+                    text-align: center;
+                    font-size: 18px;
+                    font-weight: 500;
+                }
+                .btn-product-color {
+                    margin: 20px auto 5px;
+                    display: none;
+                    justify-content: center;
+        
+                    .btn-color1 {
+                        border: none;
+                        background-color: black;
+                        border-radius: 50%;
+                        width: 20px;
+                        height: 20px;
+                        margin: 5px;
+                    }
+                    .btn-color2 {
+                        border: none;
+                        background-color: rgb(252, 202, 169);
+                        border-radius: 50%;
+                        width: 20px;
+                        height: 20px;
+                        margin: 5px;
+                    }
+                    .btn-color3 {
+                        border: none;
+                        background-color: rgb(122, 56, 26);
+                        border-radius: 50%;
+                        width: 20px;
+                        height: 20px;
+                        margin: 5px;
+                    }
+                }
+                .btn-pay-now{
+                    border: none;
+                    width: 80%;
+                    padding: 10px;
+                    margin: 0 auto 10px ;
+                    display: none;  
+                    text-align: center;
+                    background-color: rgb(5, 5, 5);
+                    color: white;
+                    font-size: 13px;
+                    font-weight: 500;
+                }
+                &:hover {
+                    border:1px solid rgba(122, 122, 122, 0.336);
+                    .btn-pay-now {
+                        display: block;
+                    }
+                    .btn-product-color{
+                        display: flex;
+                    }
+                }
+            }
+        }
+
+       }
+    }
+  }
+  

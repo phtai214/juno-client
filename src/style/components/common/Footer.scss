@@ -1,0 +1,92 @@
+.footer-container{
+    width: 100%;
+    .footer-box.row{
+        margin: 30px auto;
+        width: 90%;
+        border-top: 1px solid rgba(128, 128, 128, 0.479) ;
+        padding:10px 0;
+        .footer-box-item.col-md-4{
+            padding: 20px 40px 20px 0;
+            .call-every-day{
+                font-weight: 400;
+                margin: 5px 0 ;
+            }
+            .call-hotline{
+                font-size: 24px;
+                margin:0;
+            }
+            .call-comment{
+                font-weight: 400;
+                margin: 25px 0 5px 0 ;
+            }
+            .showroom-list{
+                text-transform: uppercase;
+            }
+            .showroom-list-img{
+                width:100%;
+                height:auto;
+                object-fit: cover;
+                margin-bottom: 10px;
+            }
+            .showroom-list-link{
+                color:rgba(59, 59, 59, 0.555);
+                &:hover{
+                    color:rgb(0, 0, 0);
+                    text-decoration: none;
+                }
+            }
+            .our-fanpage{
+                text-transform: uppercase;
+            }
+            .our-fanpage-img{
+                width: 100%;
+                height:auto;
+                object-fit: cover;
+            }
+            .box-our-fanpage-link{
+                display:flex;
+                margin-top: 10px;
+                .our-fanpage-img-social{
+                    width: 30px;
+                    height:30px;
+                    object-fit: cover;
+                    margin: 5px;
+                }
+            }
+        }
+    }
+    .footer-dropdown{
+        background-color: #f7f7f7;
+        .two-column-list{
+            width:90%;
+            margin: 20px auto;
+            display:flex;
+            padding:20px 0;
+            .column{
+                margin-right: 80px;
+                list-style: none;
+                .column-p-item{
+                    cursor: pointer;
+                    font-size: 13px;
+                    .drop-down-image{
+                        width: 15px;
+                        height: 15px;
+                        object-fit: cover;
+                        margin: 5px;
+                    }
+                }
+                .column-ul-item{
+                    margin:0;
+                    padding:0;
+                    .column-li-item{
+                        list-style: none;
+                        padding: 5px 0;
+                        cursor: pointer;
+                        font-size: 13px;
+                    }
+                }
+                
+            }
+        }
+    }
+}
