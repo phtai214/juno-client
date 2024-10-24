@@ -16,7 +16,8 @@ import Orders from './pages/admin/Orders';
 import Employees from './pages/admin/Employees';
 import Profile from './pages/customer/Profile.js';
 import { checkAuth } from './redux/slices/authSlice'; // Action để kiểm tra trạng thái đăng nhập
-
+import ProductForm from "./pages/admin/ProductForm.js";
+import Cookies from 'js-cookie';
 const App = () => {
   const dispatch = useDispatch();
   const auth = useSelector((state) => state.auth);
@@ -24,7 +25,10 @@ const App = () => {
 
   // Kiểm tra trạng thái đăng nhập khi app load
   useEffect(() => {
-    dispatch(checkAuth());
+    const userFromCookies = Cookies.get('user');
+    if (userFromCookies) {
+      dispatch(checkAuth());
+    }
   }, [dispatch]);
 
   return (
@@ -45,7 +49,7 @@ const App = () => {
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="orders" element={<Orders />} />
           <Route path="employees" element={<Employees />} />
-          <Route path="products" element={<Products />} />
+          <Route path="products" element={<ProductForm />} />
         </Route>
       )}
 

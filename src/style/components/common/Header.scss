@@ -37,7 +37,7 @@
                     }
                 }
                 
-                .collapse.navbar-collapse.col-md-10{
+                .collapse.navbar-collapse.col-md-11{
                     justify-content: flex-end;
                     .navbar-nav.ml-auto{
                         align-items: center;
@@ -45,12 +45,21 @@
                             text-transform: uppercase;
                             font-size: 90%;
                             font-weight: 500;
+                            .nav-link{
+                                .user-icon{
+                                    width:24px;
+                                    height:24px;
+                                    object-fit: cover;
+                                    margin:0 5px;
+                                }
+                            }
                             a{
                                 padding: 20px 5px;
                                 margin: 0 15px;
                                 &:hover{
                                     border-bottom: 1px solid black;
                                 }
+
                             }
                            
                             .hightlight{
@@ -124,6 +133,7 @@
                         }
                         .end-nav{
                             display:flex;
+                            
                         }
                         
                     }

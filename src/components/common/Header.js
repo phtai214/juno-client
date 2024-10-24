@@ -11,13 +11,12 @@ const Header = () => {
     const user = useSelector((state) => state.user); // Lấy thông tin người dùng từ Redux store
 
     // Kiểm tra xem người dùng đã đăng nhập chưa
-    const isLoggedIn = Cookies.get('isLoggedIn') === 'true';
-
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
     const navigate = useNavigate(); // Khởi tạo useNavigate
 
     const handleLogout = () => {
         console.log('Đăng xuất');
-        Cookies.remove('isLoggedIn'); // Xóa cookie
+        localStorage.removeItem('isLoggedIn'); // Xóa cookie
         navigate('/customer/sale-thuong-thuong'); // Chuyển hướng về trang mong muốn
     };
     const handleViewAccount = () => {
@@ -35,7 +34,7 @@ const Header = () => {
             <nav className="navbar navbar-expand-lg navbar-light">
                 <div className="container-nav">
                     <div className="box-nav row">
-                        <div className="col-md-2 logo-container">
+                        <div className="col-md-1 logo-container">
                             <Link className="navbar-brand" to="/customer/home">
                                 <img src="https://res.cloudinary.com/dhjrrk4pg/image/upload/v1729458521/logo-juno-Photoroom_odhvyp.png" alt="Logo" className="logo" />
                             </Link>
@@ -43,7 +42,7 @@ const Header = () => {
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
                         </button>
-                        <div className="collapse navbar-collapse col-md-10" id="navbarNav">
+                        <div className="collapse navbar-collapse col-md-11" id="navbarNav">
                             <ul className="navbar-nav ml-auto">
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/customer/new-product">Hàng Mới</Link>
@@ -126,7 +125,7 @@ const Header = () => {
                                         // Nếu người dùng đã đăng nhập
                                         <Dropdown>
                                             <Dropdown.Toggle className="nav-link" id="user-dropdown">
-                                                {user.name || 'User'} {/* Hiển thị tên người dùng nếu có */}
+                                                <img className="user-icon" src="https://res.cloudinary.com/dhjrrk4pg/image/upload/v1729716444/user_456212_rcmnpi.png" />  {user.name || 'User'} {/* Hiển thị tên người dùng nếu có */}
                                             </Dropdown.Toggle>
 
                                             <Dropdown.Menu>
@@ -136,9 +135,9 @@ const Header = () => {
                                         </Dropdown>
                                     ) : (
                                         // Nếu người dùng chưa đăng nhập
-                                        <div className="nav-link" onClick={handleClick}>User</div>
+                                        <div className="nav-link" onClick={handleClick}><img className="user-icon" src="https://res.cloudinary.com/dhjrrk4pg/image/upload/v1729716444/user_456212_rcmnpi.png" /></div>
                                     )}
-                                    <div className="nav-link">Cart</div>
+                                    <div className="nav-link"><img className="user-icon" src="https://res.cloudinary.com/dhjrrk4pg/image/upload/v1729715844/trolley_3743596_qrqu7i.png" /></div>
                                 </li>
                             </ul>
                         </div>

@@ -4,7 +4,6 @@ import axios from 'axios'; // Import custom Axios instance
 import { loginSuccess, loginFailure } from '../../redux/slices/authSlice'; // Redux actions
 import { setUser } from '../../redux/slices/userSlice'; // Import action từ userSlice
 import { useNavigate } from 'react-router-dom';
-import Cookies from 'js-cookie';
 import { Link } from 'react-router-dom';
 import "../../style/components/common/login.scss";
 
@@ -32,9 +31,10 @@ const LoginComponent = () => {
             const user = response.data.user;
             const { id, name, role } = user;
 
-            // Save user data to cookies
-            Cookies.set('isLoggedIn', 'true');
-            Cookies.set('userId', id);
+            // Save user data to localStorage
+            localStorage.setItem('isLoggedIn', 'true');
+            localStorage.setItem('userId', id);
+            localStorage.setItem('userRole', role);
 
             // Dispatch login success actions
             dispatch(loginSuccess(response.data)); // Chuyển trạng thái login
@@ -55,6 +55,7 @@ const LoginComponent = () => {
             dispatch(loginFailure(error.message)); // Dispatch action nếu đăng nhập thất bại
         }
     };
+
 
     return (
         <div className="login-container">

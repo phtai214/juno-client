@@ -2,8 +2,6 @@
 import React from 'react';
 import { Outlet, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import Header from '../components/common/Header';
-import Footer from '../components/common/Footer';
 import AccessDenied from '../components/common/AccessDenied'; // Import component thông báo truy cập
 
 const ProtectedRoute = ({ element }) => {
@@ -16,11 +14,9 @@ const ProtectedRoute = ({ element }) => {
 const AdminLayout = () => {
     return (
         <div>
-            <Header />
             <main>
                 <ProtectedRoute element={<Outlet />} /> {/* Kiểm tra quyền truy cập trước khi hiển thị Outlet */}
             </main>
-            <Footer />
         </div>
     );
 };
