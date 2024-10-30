@@ -1,32 +1,73 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import axios from 'axios';
+import { setCartItems, updateQuantity, removeItem } from '../../redux/slices/cartSlice';
 import "../../style/components/common/CartHeader.scss";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 const CartHeader = ({ setCart, isOpen }) => {
-    const [cartItems, setCartItems] = useState([
-        { id: 1, name: 'Sản phẩm 1', price: 100000, quantity: 2 },
-        { id: 2, name: 'Sản phẩm 2', price: 150000, quantity: 1 },
-        { id: 3, name: 'Sản phẩm 3', price: 200000, quantity: 3 },
-    ]);
+    const dispatch = useDispatch();
+    const cartItems = useSelector(state => state.cart.items);
+    const userId = useSelector(state => state.user.id);
+    const [loading, setLoading] = useState(true);
 
-    const totalAmount = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    useEffect(() => {
+        const fetchCartData = async () => {
+            try {
+                if (userId) {
+                    // Lấy thông tin giỏ hàng
+                    const cartResponse = await axios.get(`http://localhost:3001/api/v1/cart/user/${userId}`);
+                    const cartId = cartResponse.data.id;
+
+                    // Gọi API để lấy chi tiết sản phẩm trong giỏ hàng
+                    const itemsResponse = await axios.get(`http://localhost:3001/api/v1/cartItem/cartItems/cart/${cartId}`);
+                    const items = itemsResponse.data || []; // Giả sử trả về mảng các sản phẩm
+                    console.log("check item >>> ", items)
+                    // Cập nhật cartItems vào Redux
+                    dispatch(setCartItems(items));
+                } else {
+                    const localCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+                    dispatch(setCartItems(localCartItems));
+                }
+            } catch (error) {
+                console.error('Error fetching cart data:', error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchCartData();
+    }, [dispatch, userId]);
+
+    const totalAmount = Array.isArray(cartItems)
+        ? cartItems.reduce((acc, item) => {
+            const price = parseFloat(item.product?.price) || 0; // Kiểm tra sự tồn tại của product
+            return acc + price * (item.quantity || 0); // Kiểm tra quantity
+        }, 0)
+        : 0;
 
     const handleCloseCart = () => {
         setCart(false);
     };
 
-    const handleQuantityChange = (id, event) => {
+    const handleQuantityChange = async (id, event) => {
         const newQuantity = parseInt(event.target.value);
         if (!isNaN(newQuantity) && newQuantity >= 0) {
-            setCartItems(prevItems =>
-                prevItems.map(item =>
-                    item.id === id ? { ...item, quantity: newQuantity } : item
-                )
-            );
+            try {
+                dispatch(updateQuantity({ id, quantity: newQuantity }));
+                await axios.put(`http://localhost:3001/api/v1/cartItem/cartItems/${id}`, { quantity: newQuantity });
+            } catch (error) {
+                console.error('Error updating cart item quantity:', error);
+            }
         }
     };
 
-    const removeItem = (id) => {
-        setCartItems(prevItems => prevItems.filter(item => item.id !== id));
+    const handleRemoveItem = async (id) => {
+        try {
+            await axios.delete(`http://localhost:3001/api/v1/cartItem/cartItems/${id}`);
+            dispatch(removeItem(id));
+        } catch (error) {
+            console.error('Error removing item from cart:', error);
+        }
     };
 
     return (
@@ -41,26 +82,40 @@ const CartHeader = ({ setCart, isOpen }) => {
                         <img className="img-close-cart" src="https://res.cloudinary.com/dhjrrk4pg/image/upload/v1728520649/cross-small_3917203_rplegl.png" alt="Close" />
                     </button>
                 </div>
-                {cartItems.length === 0 ? (
+                {loading ? (
+                    <p>Đang tải sản phẩm...</p>
+                ) : cartItems.length === 0 ? (
                     <p>Hiện chưa có sản phẩm</p>
                 ) : (
                     <>
                         <ul className="cart-box-data">
                             {cartItems.map(item => (
-                                <li key={item.id} className="cart-item-data">
-                                    <img src={item.image} alt={item.name} className="cart-item-image" style={{ width: '50px', height: '50px', marginRight: '10px' }} />
-                                    {item.name} - {item.price.toLocaleString()} VND x
-                                    <input
-                                        type="number"
-                                        value={item.quantity}
-                                        min="0"
-                                        onChange={(event) => handleQuantityChange(item.id, event)}
-                                        style={{ width: '50px', marginLeft: '5px' }}
-                                    />
-                                    = {(item.price * item.quantity).toLocaleString()} VND
-                                    <button className="cart-item-btn-remove" onClick={() => removeItem(item.id)} style={{ marginLeft: '10px' }}>
-                                        Xóa
-                                    </button>
+                                <li key={item.id} className="cart-item-data row">
+                                    <div className="cart-box-data-item col-md-3 col-sm-3"><img
+                                        src={item.product.image_url.replace(/"/g, '')}
+                                        alt={item.product.name}
+                                        className="cart-item-image"
+                                    /></div>
+                                    <div className="cart-box-data-item col-md-8 col-sm-8">
+                                        <p className="cart-box-data-item-product-name">{item.product.name} - {parseFloat(item.product.price).toLocaleString()} VND x</p>
+                                        <input
+                                            type="number"
+                                            value={item.quantity}
+                                            min="0"
+                                            onChange={(event) => handleQuantityChange(item.id, event)}
+                                            className="cart-box-data-item-quantity"
+                                        />
+                                        = {(parseFloat(item.product.price) * item.quantity).toLocaleString()} VND
+                                        <button className="cart-item-btn-remove" onClick={() => handleRemoveItem(item.id)} style={{ marginLeft: '10px' }}>
+                                            Xóa
+                                        </button>
+                                        {/* Hiển thị màu đã chọn */}
+                                        {item.color && (
+                                            <div style={{ marginTop: '5px', fontSize: '14px', color: '#555' }}>
+                                                Màu: <span style={{ fontWeight: 'bold', color: item.color }}>{item.color}</span>
+                                            </div>
+                                        )}
+                                    </div>
                                 </li>
                             ))}
                         </ul>

@@ -133,10 +133,8 @@ const ProductCreateForm = () => {
             formData.append('productDetails[product_code]', productDetails.product_code);
             formData.append('productDetails[design]', productDetails.design);
             formData.append('productDetails[material]', productDetails.material);
-            formData.append('productDetails[height]', productDetails.height);
             formData.append('productDetails[origin]', productDetails.origin);
             formData.append('productDetails[colors]', productDetails.colors);
-            formData.append('productDetails[sizes]', productDetails.sizes);
             formData.append('productDetails[vat_included]', productDetails.vat_included);
             variations.forEach((variation, index) => {
                 formData.append(`variations[${index}][size]`, variation.size);
@@ -231,18 +229,8 @@ const ProductCreateForm = () => {
                 </div>
 
                 <div className="form-group">
-                    <label>Độ cao:</label>
-                    <input type="text" name="height" value={productDetails.height} onChange={handleProductDetailsChange} required />
-                </div>
-
-                <div className="form-group">
                     <label>Màu sắc:</label>
                     <input type="text" name="colors" value={productDetails.colors} onChange={handleProductDetailsChange} required />
-                </div>
-
-                <div className="form-group">
-                    <label>Kích cỡ:</label>
-                    <input type="text" name="sizes" value={productDetails.sizes} onChange={handleProductDetailsChange} required />
                 </div>
 
                 <div className="form-group">

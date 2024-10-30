@@ -32,7 +32,7 @@
                 margin: 10px auto;
                 display:flex;
                 //justify-content:;
-                .btn-color1{
+                .btn-color-đen{
                 border: none;
                 background-color: black;
                 border-radius: 50%;
@@ -40,7 +40,15 @@
                 height:30px;
                 margin:5px;
                 }
-                .btn-color2{
+                .btn-color-trắng{
+                    border: none;
+                    background-color: rgb(255, 255, 255);
+                    border-radius: 50%;
+                    width: 30px;
+                    height:30px;
+                    margin:5px;
+                    }
+                .btn-color-kem{
                     border: none;
                     background-color: rgb(252, 202, 169);
                     border-radius: 50%;
@@ -48,14 +56,30 @@
                     height:30px;
                     margin:5px;
                     }
-                    .btn-color3{
+                    .btn-color-hồng{
                         border: none;
-                        background-color: rgb(122, 56, 26);
+                        background-color: rgb(224, 117, 210);
                         border-radius: 50%;
                         width: 30px;
                         height:30px;
                         margin:5px;
                         }
+                        .btn-color-xám-nhạt{
+                            border: none;
+                            background-color: rgba(97, 97, 97, 0.849);
+                            border-radius: 50%;
+                            width: 30px;
+                            height:30px;
+                            margin:5px;
+                            }
+                            .btn-color-xanh{
+                                border: none;
+                                background-color: rgb(107, 152, 248);
+                                border-radius: 50%;
+                                width: 30px;
+                                height:30px;
+                                margin:5px;
+                                }
             }
             .btn-product-size{
                 .btn-size{

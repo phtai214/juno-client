@@ -1,17 +1,26 @@
 // src/components/common/SearchBar.js
-import React, { useState } from 'react';
-import '../../style/components/common/SearchBar.scss'; // Đảm bảo import SCSS
-
-const products = [
-    { id: 1, name: 'Sản phẩm 1', price: 100000, image: 'https://example.com/image1.jpg' },
-    { id: 2, name: 'Sản phẩm 2', price: 150000, image: 'https://example.com/image2.jpg' },
-    { id: 3, name: 'Sản phẩm 3', price: 200000, image: 'https://example.com/image3.jpg' },
-];
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import '../../style/components/common/SearchBar.scss';
 
 const SearchBar = () => {
     const [isInputVisible, setIsInputVisible] = useState(false);
     const [searchTerm, setSearchTerm] = useState('');
     const [filteredProducts, setFilteredProducts] = useState([]);
+    const [products, setProducts] = useState([]); // State to hold products
+
+    useEffect(() => {
+        const fetchProducts = async () => {
+            try {
+                const response = await axios.get('http://localhost:3001/api/v1/product/products');
+                setProducts(response.data.products); // Set products from API response
+            } catch (error) {
+                console.error('Error fetching products:', error);
+            }
+        };
+
+        fetchProducts();
+    }, []); // Run once on component mount
 
     const handleMouseEnter = () => {
         setIsInputVisible(true);
@@ -27,7 +36,7 @@ const SearchBar = () => {
         const value = event.target.value;
         setSearchTerm(value);
 
-        // Tìm kiếm sản phẩm
+        // Filter products based on search term
         const filtered = products.filter(product =>
             product.name.toLowerCase().includes(value.toLowerCase())
         );
@@ -36,7 +45,6 @@ const SearchBar = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        // Có thể thêm logic để xử lý tìm kiếm (ví dụ: chuyển đến trang kết quả)
         console.log('Searching for:', searchTerm);
     };
 

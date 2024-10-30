@@ -1,0 +1,95 @@
+.footer-container {
+  width: 100%;
+}
+.footer-container .footer-box.row {
+  margin: 30px auto;
+  width: 90%;
+  border-top: 1px solid rgba(128, 128, 128, 0.479);
+  padding: 10px 0;
+}
+.footer-container .footer-box.row .footer-box-item.col-md-4 {
+  padding: 20px 40px 20px 0;
+}
+.footer-container .footer-box.row .footer-box-item.col-md-4 .call-every-day {
+  font-weight: 400;
+  margin: 5px 0;
+}
+.footer-container .footer-box.row .footer-box-item.col-md-4 .call-hotline {
+  font-size: 24px;
+  margin: 0;
+}
+.footer-container .footer-box.row .footer-box-item.col-md-4 .call-comment {
+  font-weight: 400;
+  margin: 25px 0 5px 0;
+}
+.footer-container .footer-box.row .footer-box-item.col-md-4 .showroom-list {
+  text-transform: uppercase;
+}
+.footer-container .footer-box.row .footer-box-item.col-md-4 .showroom-list-img {
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-bottom: 10px;
+}
+.footer-container .footer-box.row .footer-box-item.col-md-4 .showroom-list-link {
+  color: rgba(59, 59, 59, 0.555);
+}
+.footer-container .footer-box.row .footer-box-item.col-md-4 .showroom-list-link:hover {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
+.footer-container .footer-box.row .footer-box-item.col-md-4 .our-fanpage {
+  text-transform: uppercase;
+}
+.footer-container .footer-box.row .footer-box-item.col-md-4 .our-fanpage-img {
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.footer-container .footer-box.row .footer-box-item.col-md-4 .box-our-fanpage-link {
+  display: flex;
+  margin-top: 10px;
+}
+.footer-container .footer-box.row .footer-box-item.col-md-4 .box-our-fanpage-link .our-fanpage-img-social {
+  width: 30px;
+  height: 30px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin: 5px;
+}
+.footer-container .footer-dropdown {
+  background-color: #f7f7f7;
+}
+.footer-container .footer-dropdown .two-column-list {
+  width: 90%;
+  margin: 20px auto;
+  display: flex;
+  padding: 20px 0;
+}
+.footer-container .footer-dropdown .two-column-list .column {
+  margin-right: 80px;
+  list-style: none;
+}
+.footer-container .footer-dropdown .two-column-list .column .column-p-item {
+  cursor: pointer;
+  font-size: 13px;
+}
+.footer-container .footer-dropdown .two-column-list .column .column-p-item .drop-down-image {
+  width: 15px;
+  height: 15px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin: 5px;
+}
+.footer-container .footer-dropdown .two-column-list .column .column-ul-item {
+  margin: 0;
+  padding: 0;
+}
+.footer-container .footer-dropdown .two-column-list .column .column-ul-item .column-li-item {
+  list-style: none;
+  padding: 5px 0;
+  cursor: pointer;
+  font-size: 13px;
+}/*# sourceMappingURL=Footer.css.map */

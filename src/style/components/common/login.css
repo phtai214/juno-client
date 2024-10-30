@@ -1,0 +1,54 @@
+.login-container {
+  width: 40%;
+  margin: auto;
+  text-align: center;
+}
+.login-container .login-container-note {
+  display: block;
+  margin: 20px 0;
+}
+.login-container .phoneInput {
+  display: block;
+  margin: 20px auto;
+  width: 100%;
+  padding: 10px 0 0 0;
+  border: none;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.377);
+}
+.login-container .passwordInput {
+  display: block;
+  margin: 20px auto;
+  width: 100%;
+  padding: 10px 0 0 0;
+  border: none;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.377);
+}
+.login-container .btn-login {
+  width: 100%;
+  padding: 10px 20px;
+  border: none;
+  background-color: black;
+  color: white;
+}
+.login-container .box-login-fb-gg {
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+}
+.login-container .box-login-fb-gg .btn-login-fb {
+  border: none;
+  background-color: rgba(255, 235, 205, 0);
+}
+.login-container .box-login-fb-gg .btn-login-fb .fb-icon {
+  width: 30px;
+  height: 30px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.login-container .item-login {
+  padding: 10px 0;
+}
+.login-container .link-register {
+  text-decoration: none;
+  color: black;
+}/*# sourceMappingURL=login.css.map */
