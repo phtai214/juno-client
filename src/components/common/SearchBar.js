@@ -2,8 +2,16 @@
 import React, { useState } from 'react';
 import '../../style/components/common/SearchBar.scss'; // Đảm bảo import SCSS
 
+const products = [
+    { id: 1, name: 'Sản phẩm 1', price: 100000, image: 'https://example.com/image1.jpg' },
+    { id: 2, name: 'Sản phẩm 2', price: 150000, image: 'https://example.com/image2.jpg' },
+    { id: 3, name: 'Sản phẩm 3', price: 200000, image: 'https://example.com/image3.jpg' },
+];
+
 const SearchBar = () => {
     const [isInputVisible, setIsInputVisible] = useState(false);
+    const [searchTerm, setSearchTerm] = useState('');
+    const [filteredProducts, setFilteredProducts] = useState([]);
 
     const handleMouseEnter = () => {
         setIsInputVisible(true);
@@ -11,11 +19,30 @@ const SearchBar = () => {
 
     const handleMouseLeave = () => {
         setIsInputVisible(false);
+        setSearchTerm('');
+        setFilteredProducts([]);
+    };
+
+    const handleChange = (event) => {
+        const value = event.target.value;
+        setSearchTerm(value);
+
+        // Tìm kiếm sản phẩm
+        const filtered = products.filter(product =>
+            product.name.toLowerCase().includes(value.toLowerCase())
+        );
+        setFilteredProducts(filtered);
+    };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        // Có thể thêm logic để xử lý tìm kiếm (ví dụ: chuyển đến trang kết quả)
+        console.log('Searching for:', searchTerm);
     };
 
     return (
         <div className="searchFormHeader" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-            <form className="searchHeader" action="/search">
+            <form className="searchHeader" onSubmit={handleSubmit}>
                 <div className="searchBox">
                     <input type="hidden" name="type" value="product" autoComplete="off" />
                     {isInputVisible && (
@@ -23,8 +50,10 @@ const SearchBar = () => {
                             type="text"
                             name="q"
                             className="searchInput"
-                            placeholder=""
+                            placeholder="Tìm kiếm sản phẩm..."
                             autoComplete="off"
+                            value={searchTerm}
+                            onChange={handleChange}
                         />
                     )}
                     {!isInputVisible && (
@@ -39,6 +68,16 @@ const SearchBar = () => {
                     <input type="submit" className="btnSearchSubmit" style={{ display: 'none' }} />
                 </div>
             </form>
+            {isInputVisible && filteredProducts.length > 0 && (
+                <ul className="searchResults">
+                    {filteredProducts.map(product => (
+                        <li key={product.id} className="searchResultItem">
+                            <img src={product.image} alt={product.name} style={{ width: '30px', height: '30px', marginRight: '10px' }} />
+                            <span>{product.name} - {product.price.toLocaleString()} VND</span>
+                        </li>
+                    ))}
+                </ul>
+            )}
         </div>
     );
 };

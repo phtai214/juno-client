@@ -1,0 +1,53 @@
+.grid-cart-continer{
+    background-color: rgba(211,234,254,255);
+    width: calc(25% - 10px);
+    margin: 10px  ;
+    border-radius: 20px;
+    color:rgba(8,37,119,255);
+    
+    .grid-cart-box{
+        padding: 20px;
+        width: 100%;
+        .grid-cart-box-title{
+            margin:5px 0;
+            padding:0;
+            font-weight: 500;
+            font-size: 90%;
+
+        }
+        .cart-box-data{
+            margin: 10px 0;
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+            .box-item-data{
+                font-size: 80%;
+                font-weight: 500;
+                .positive {
+                    color: green; /* Màu cho tăng trưởng */
+                }
+                
+                .negative {
+                    color: red; /* Màu cho suy giảm */
+                }
+            }
+
+        }
+        .grid-cart-box-analytic{
+            display:flex;
+            justify-content: end;
+        }
+    }
+}
+.dashboard-container{
+    width:90%;
+    margin:0 auto;
+    .dashboard-title{
+        margin-left: 10px;
+    }
+    .dashboard-content{
+        .dashboard-item{
+            display:flex;
+        }
+    }
+}

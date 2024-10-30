@@ -1,26 +1,22 @@
 import React from 'react';
-
+import "../../style/pages/admin/Dashboard.scss"
+import AnalyticsCard from "../../components/Admin/AnalyticsCard";
+import OrderAnalyticsCard from "../../components/Admin/OrderAnalyticsCard";
+import RevenueAnalyticsCard from '../../components/Admin/RevenueAnalyticsCard';
+import ReviewAnalyticsCard from "../../components/Admin/ReviewAnalyticsCard"
+import "../../style/components/admin/AnalyticsCard.scss"
 const Dashboard = () => {
     return (
         <div className="dashboard-container">
-            <h1>Admin Dashboard</h1>
+            <h3 className="dashboard-title">Hi, Welcome back</h3>
             <div className="dashboard-content">
                 <div className="dashboard-item">
-                    <h2>Tổng số sản phẩm</h2>
-                    <p>120</p>
+                    <AnalyticsCard />
+                    <OrderAnalyticsCard />
+                    <RevenueAnalyticsCard />
+                    <ReviewAnalyticsCard />
                 </div>
-                <div className="dashboard-item">
-                    <h2>Tổng số đơn hàng</h2>
-                    <p>45</p>
-                </div>
-                <div className="dashboard-item">
-                    <h2>Tổng số nhân viên</h2>
-                    <p>10</p>
-                </div>
-                <div className="dashboard-item">
-                    <h2>Doanh thu tháng</h2>
-                    <p>500,000,000 VND</p>
-                </div>
+
             </div>
         </div>
     );

@@ -1,0 +1,41 @@
+.grid-cart-review-container{
+    background-color: rgba(255,228,213,255);
+    width: calc(25% - 10px);
+    margin: 10px  ;
+    border-radius: 20px;
+    color:rgba(147,51,59,255);
+    
+    .grid-cart-review-box{
+        padding: 20px;
+        width: 100%;
+        .grid-cart-box-title-review{
+            margin:5px 0;
+            padding:0;
+            font-weight: 500;
+            font-size: 90%;
+
+        }
+        .cart-box-data-review{
+            margin: 10px 0;
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+            .box-item-data-review{
+                font-size: 80%;
+                font-weight: 500;
+                .positive {
+                    color: green; /* Màu cho tăng trưởng */
+                }
+                
+                .negative {
+                    color: red; /* Màu cho suy giảm */
+                }
+            }
+
+        }
+        .grid-cart-box-analytic-review{
+            display:flex;
+            justify-content: end;
+        }
+    }
+}

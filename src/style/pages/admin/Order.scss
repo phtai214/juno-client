@@ -1,0 +1,82 @@
+.order-container{
+    .orderTitle{
+        color: var(--text);
+        margin: 10px 0;
+        
+    }
+    .btn-create{
+        border: none;
+        padding: 5px;
+        border-radius: 25px;
+        background-color: rgb(64, 104, 236);
+        color:aliceblue;
+    }
+    .table{
+        width:100%;
+        .order-item{
+            td{
+                padding: 10px;
+                border-radius: 5px;
+                .delete{
+                    padding: 5px;
+                    border: none;
+                    margin: 4px;
+                    border-radius: 15px;
+                    background-color: rgb(212, 105, 72);
+                    cursor: pointer;
+                }
+                .update{
+                    padding: 5px;
+                    border: none;
+                    margin: 4px;
+                    border-radius: 15px;
+                    background-color: rgb(241, 229, 49);
+                    cursor: pointer;
+                }
+            }
+            .booking-status-confirmed {
+                background-color: green; 
+                padding: 5px;
+                border-radius: 15px;
+            }
+            
+            .booking-status-processing {
+                background-color: orange; 
+                padding: 5px;
+                border-radius: 15px;
+            }
+            
+            .booking-status-cancelled {
+                background-color: red;
+                padding: 5px;
+                border-radius: 15px;
+            }
+            
+            .booking-status-completed {
+                background-color: blue; 
+                padding: 5px;
+                border-radius: 15px;
+            }
+        }
+        .order-item:hover{
+            background-color: #2e374a;
+        }
+        
+       
+    }
+    .pagination{
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        li{
+            margin: 0 5px;
+            background-color: var(--bg);
+        }
+        .pagi-btn{
+            padding: 3px 5px;
+            border-radius: 5px;
+            border: none;
+            background-color: rgb(185, 185, 185)
+        }
+    }
+}

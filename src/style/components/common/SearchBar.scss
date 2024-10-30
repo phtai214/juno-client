@@ -2,8 +2,7 @@
 
 .searchFormHeader {
     position: relative;
-    width: 100px;
-
+    width: 100%; 
     .searchHeader {
         .searchBox {
             display: flex;
@@ -13,21 +12,21 @@
             // Input khi không hover
             .searchInput {
                 width: 0; // Đặt độ rộng ban đầu là 0
-                padding: 5px;
+                padding: 5px 0; // Padding chỉ trên/dưới
                 border: none;
-                //border-radius: 4px;
                 transition: width 0.3s ease, padding 0.3s ease; // Hiệu ứng cho độ rộng và padding
-                font-size: 80%;
+                font-size: 100%; // Đặt kích thước font chuẩn
+                border-bottom: 1px solid transparent; // Thêm viền dưới để có hiệu ứng khi focus
                 &:focus {
                     outline: none;
-                    border-color: #2D2D2D; // Đổi màu viền khi focus
+                    border-bottom: 1px solid #2D2D2D; // Đổi màu viền khi focus
                 }
             }
 
             // Hiển thị chữ "Tìm kiếm"
             .searchHint {
                 margin-right: 10px;
-                font-size: 80%;
+                font-size: 100%; // Đặt kích thước font chuẩn
                 cursor: pointer;
                 transition: opacity 0.3s ease;
                 padding: 5px; // Thêm padding cho chữ "Tìm kiếm"
@@ -49,16 +48,47 @@
             // Hiệu ứng hover để hiện ô input
             &:hover {
                 .searchInput {
-                    width: 100px; 
+                    width: 120px; // Tăng chiều rộng khi hover
                     padding: 5px; 
-                    background-color: rgba(247, 247, 247, 0);
-                    border-bottom: 1px solid rgba(141, 141, 141, 0.575);
+                    background-color: rgba(247, 247, 247, 0.9); // Thay đổi nền khi hover
+                    border-bottom: 1px solid rgba(141, 141, 141, 0.575); // Thêm viền dưới khi hover
                 }
 
                 .searchHint {
                     opacity: 0; 
                 }
             }
+        }
+    }
+
+    // Kết quả tìm kiếm
+    .searchResults {
+        position: absolute;
+        top: 100%; // Đặt vị trí bên dưới ô tìm kiếm
+        left: -100px;
+        right: 0;
+        background-color: white; // Nền trắng cho kết quả
+        border: 1px solid #ccc; // Biên cho kết quả
+        width:350px;
+        max-height: 200px; // Chiều cao tối đa
+        overflow-y: auto; // Thêm cuộn nếu quá nhiều kết quả
+        z-index: 100; // Đảm bảo kết quả nằm trên các phần tử khác
+    }
+
+    // Mỗi mục trong kết quả tìm kiếm
+    .searchResultItem {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        cursor: pointer;
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.05); // Hiệu ứng hover cho mục tìm kiếm
+        }
+
+        img {
+            width: 30px; // Kích thước hình ảnh
+            height: 30px; // Kích thước hình ảnh
+            margin-right: 10px; // Khoảng cách giữa hình ảnh và tên sản phẩm
         }
     }
 }

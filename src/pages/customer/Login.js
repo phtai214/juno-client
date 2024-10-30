@@ -31,11 +31,11 @@ const LoginComponent = () => {
             const user = response.data.user;
             const { id, name, role } = user;
 
-            // Save user data to localStorage
             localStorage.setItem('isLoggedIn', 'true');
             localStorage.setItem('userId', id);
             localStorage.setItem('userRole', role);
-
+            localStorage.setItem('userName', name); // Lưu tên
+            localStorage.setItem('userEmail', credentials.email); // Lưu email
             // Dispatch login success actions
             dispatch(loginSuccess(response.data)); // Chuyển trạng thái login
             dispatch(setUser(user)); // Đặt thông tin người dùng

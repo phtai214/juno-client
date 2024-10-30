@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import "../../style/pages/customer/ProductDetail.scss";
 
 const ProductDetail = () => {
-    const { id } = useParams();
+    const { slug } = useParams();
     const [detail, setDetail] = useState(true);
     const [describe, setDescribe] = useState(false);
     const [preserve, setPreserve] = useState(false);

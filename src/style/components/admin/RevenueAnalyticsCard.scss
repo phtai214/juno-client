@@ -1,0 +1,41 @@
+.grid-cart-revenue-container{
+    background-color: rgba(255,241,202,255);
+    width: calc(25% - 10px);
+    margin: 10px  ;
+    border-radius: 20px;
+    color:#7b4302;
+    
+    .grid-cart-revenue-box{
+        padding: 20px;
+        width: 100%;
+        .grid-cart-box-title-revenue{
+            margin:5px 0;
+            padding:0;
+            font-weight: 500;
+            font-size: 90%;
+
+        }
+        .cart-box-data-revenue{
+            margin: 10px 0;
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+            .box-item-data-revenue{
+                font-size: 80%;
+                font-weight: 500;
+                .positive {
+                    color: green; /* Màu cho tăng trưởng */
+                }
+                
+                .negative {
+                    color: red; /* Màu cho suy giảm */
+                }
+            }
+
+        }
+        .grid-cart-box-analytic-revenue{
+            display:flex;
+            justify-content: end;
+        }
+    }
+}

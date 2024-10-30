@@ -1,0 +1,40 @@
+.user-container{
+    .userTitle{
+        color: var(--text);
+        margin: 10px 0;
+        
+    }
+    .table{
+        width:100%;
+        td{
+            padding:10px;
+            .user{
+                display:flex;
+                gap:10px;
+                align-items: center;
+                .userImg{
+                    border-radius: 50%;
+                    object-fit: cover;
+                    margin-top:5px ;
+                }
+            }
+            .delete{
+                padding: 5px;
+                border: none;
+                margin: 0 4px;
+                border-radius: 15px;
+                background-color: rgb(212, 105, 72);
+                cursor: pointer;
+            }
+            .update{
+                padding: 5px;
+                border: none;
+                margin: 0 4px;
+                border-radius: 15px;
+                background-color: rgb(241, 229, 49);
+                cursor: pointer;
+            }
+        }
+       
+    }
+}

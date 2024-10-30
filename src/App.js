@@ -16,7 +16,9 @@ import Orders from './pages/admin/Orders';
 import Employees from './pages/admin/Employees';
 import Profile from './pages/customer/Profile.js';
 import { checkAuth } from './redux/slices/authSlice'; // Action để kiểm tra trạng thái đăng nhập
-import ProductForm from "./pages/admin/ProductForm.js";
+import Product from "./pages/admin/Product.js";
+import UsersPage from "./pages/admin/User.js";
+import ProductCreateForm from "./pages/admin/ProductCreateForm.js"
 import Cookies from 'js-cookie';
 const App = () => {
   const dispatch = useDispatch();
@@ -47,9 +49,11 @@ const App = () => {
       {user?.role === 'admin' && (
         <Route path="/admin" element={<AdminLayout />}>
           <Route path="dashboard" element={<Dashboard />} />
+          <Route path="user" element={<UsersPage />} />
           <Route path="orders" element={<Orders />} />
           <Route path="employees" element={<Employees />} />
-          <Route path="products" element={<ProductForm />} />
+          <Route path="products" element={<Product />} />
+          <Route path="products/create" element={<ProductCreateForm />} />
         </Route>
       )}
 

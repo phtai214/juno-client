@@ -19,7 +19,16 @@ const Products = () => {
         const fetchData = async () => {
             try {
                 const response = await axios.get('http://localhost:3001/api/v1/product/products');
-                setProducts(response.data.products); // Giả định dữ liệu trả về có dạng { products: [...] }
+                // Kiểm tra nếu data.products là một mảng hợp lệ
+                if (Array.isArray(response.data.products)) {
+                    const formattedProducts = response.data.products.map(product => ({
+                        ...product,
+                        image_url: product.image_url.replace(/"/g, ''), // Loại bỏ dấu ngoặc kép
+                    }));
+                    setProducts(formattedProducts);
+                } else {
+                    console.error('Products data is not an array:', response.data.products);
+                }
             } catch (error) {
                 console.error('Error fetching products:', error);
             }
@@ -99,15 +108,17 @@ const Products = () => {
                                     .filter(product => product.category.includes("Giày")) // Lọc sản phẩm có category chứa từ "Giày"
                                     .map((product, index) => (
                                         <div key={index} className="combo749-box col-md-3 col-sm-3">
-                                            <Link to={`/customer/product/${product.id}`}><img className="combo749-box-img" src={product.variations[0]?.imageUrl} alt={product.name} /></Link>
+                                            <Link to={`/customer/product/${product.slug}`}>
+                                                <img className="combo749-box-img" src={product.image_url} alt={product.name} />
+                                            </Link>
                                             <div className="btn-product-color">
                                                 {/* Tạo nút màu cho từng biến thể của sản phẩm */}
-                                                {product.variations.map((variation, i) => (
+                                                {product.variations && product.variations.map((variation, i) => (
                                                     <button key={i} className={`btn-color${i + 1}`} style={{ backgroundColor: variation.color }}></button>
                                                 ))}
                                             </div>
                                             <p className="name-product">{product.name}</p>
-                                            <p className="price-product">{product.price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</p>
+                                            <p className="price-product">{parseInt(product.price).toLocaleString('vi-VN')}đ</p>
                                         </div>
                                     ))
                             )}
