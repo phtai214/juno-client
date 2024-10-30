@@ -1,23 +1,28 @@
-import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import CustomerLayout from './layouts/CustomerLayout.js';
-import AdminLayout from './layouts/AdminLayout';
-import EmployeeLayout from './layouts/EmployeeLayout';
-import Login from './pages/customer/Login.js';
-import Register from './pages/customer/Register.js';
-import Dashboard from './pages/admin/Dashboard';
-import Products from './pages/customer/Products.js';
-import Home from './pages/customer/Home.js';
-import ProductDetail from './pages/customer/ProductDetail.js';
-import Cart from './pages/customer/Cart.js';
-import Checkout from './pages/customer/Checkout.js';
-import Orders from './pages/admin/Orders';
-import Employees from './pages/admin/Employees';
-import Profile from './pages/customer/Profile.js';
-import { checkAuth } from './redux/slices/authSlice'; // Action để kiểm tra trạng thái đăng nhập
+import React, { useEffect } from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import CustomerLayout from "./layouts/CustomerLayout.js";
+import AdminLayout from "./layouts/AdminLayout";
+import EmployeeLayout from "./layouts/EmployeeLayout";
+import Login from "./pages/customer/Login.js";
+import Register from "./pages/customer/Register.js";
+import Dashboard from "./pages/admin/Dashboard";
+import Products from "./pages/customer/Products.js";
+import Home from "./pages/customer/Home.js";
+import ProductDetail from "./pages/customer/ProductDetail.js";
+import Cart from "./pages/customer/Cart.js";
+import Checkout from "./pages/customer/Checkout.js";
+import Orders from "./pages/admin/Orders";
+import Employees from "./pages/admin/Employees";
+import Profile from "./pages/customer/Profile.js";
+import { checkAuth } from "./redux/slices/authSlice"; // Action để kiểm tra trạng thái đăng nhập
 import ProductForm from "./pages/admin/ProductForm.js";
-import Cookies from 'js-cookie';
+import Cookies from "js-cookie";
 const App = () => {
   const dispatch = useDispatch();
   const auth = useSelector((state) => state.auth);
@@ -25,7 +30,7 @@ const App = () => {
 
   // Kiểm tra trạng thái đăng nhập khi app load
   useEffect(() => {
-    const userFromCookies = Cookies.get('user');
+    const userFromCookies = Cookies.get("user");
     if (userFromCookies) {
       dispatch(checkAuth());
     }
@@ -37,14 +42,20 @@ const App = () => {
       <Route path="/customer" element={<CustomerLayout />}>
         <Route path="sale-thuong-thuong" element={<Products />} />
         <Route path="home" element={<Home />} />
-        <Route path="profile" element={isAuthenticated ? <Profile /> : <Navigate to="/login" />} />
+        <Route
+          path="profile"
+          element={isAuthenticated ? <Profile /> : <Navigate to="/login" />}
+        />
         <Route path="product/:id" element={<ProductDetail />} />
         <Route path="cart" element={<Cart />} />
-        <Route path="checkout" element={isAuthenticated ? <Checkout /> : <Navigate to="/login" />} />
+        <Route
+          path="checkout"
+          element={isAuthenticated ? <Checkout /> : <Navigate to="/login" />}
+        />
       </Route>
 
       {/* Routes dành cho admin */}
-      {user?.role === 'admin' && (
+      {user?.role === "admin" && (
         <Route path="/admin" element={<AdminLayout />}>
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="orders" element={<Orders />} />
@@ -54,7 +65,7 @@ const App = () => {
       )}
 
       {/* Routes dành cho nhân viên */}
-      {user?.role === 'employee' && (
+      {user?.role === "employee" && (
         <Route path="/employee" element={<EmployeeLayout />}>
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="orders" element={<Orders />} />
@@ -66,9 +77,11 @@ const App = () => {
       <Route path="/register" element={<Register />} />
 
       {/* Redirect mặc định */}
-      <Route path="/" element={<Navigate to="/customer/sale-thuong-thuong" />} />
+      <Route
+        path="/"
+        element={<Navigate to="/customer/sale-thuong-thuong" />}
+      />
     </Routes>
-
   );
 };
 
