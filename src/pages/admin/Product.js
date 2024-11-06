@@ -36,26 +36,40 @@ function Product() {
                 <h2 className="productTitle">Product</h2>
                 <Link className="title-box-link" to="create">Create New Product</Link>
             </div>
-            <div className="product-box row">
-                {Array.isArray(data) && data.length > 0 ? (
-                    data.map((product) => (
-                        <div className="product-item col-md-3 col-sm-3" key={product.id}>
-                            <img className="product-item-image" src={product.image_url.replace(/"/g, '')} alt={product.name} />
-                            <h6 className="product-item-title-name">{product.name}</h6>
-                            <div className="product-item-box">
-                                <div className="product-color">
-                                    {product.Variations.map((variation, index) => (
-                                        <p key={index} style={{ backgroundColor: variation.color }}></p>
-                                    ))}
-                                </div>
-                                <h6 className="product-price">{parseInt(product.price).toLocaleString()}₫</h6>
-                            </div>
-                        </div>
-                    ))
-                ) : (
-                    <p>No products available.</p> // Thông báo nếu không có sản phẩm
-                )}
-            </div>
+            <table className="table">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Variations</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {Array.isArray(data) && data.length > 0 ? (
+                        data.map((product) => (
+                            <tr className="product-item" key={product.id}>
+                                <td>
+                                    <img className="product-item-image" src={product.image_url.replace(/"/g, '')} alt={product.name} />
+                                </td>
+                                <td>{product.name}</td>
+                                <td>
+                                    <div className="product-color">
+                                        {product.Variations.map((variation, index) => (
+                                            <span key={index} style={{ backgroundColor: variation.color, display: 'inline-block', width: '20px', height: '20px', marginRight: '5px' }}></span>
+                                        ))}
+                                    </div>
+                                </td>
+                                <td>{parseInt(product.price).toLocaleString()}₫</td>
+                            </tr>
+                        ))
+                    ) : (
+                        <tr>
+                            <td colSpan="4">No products available.</td> {/* Thông báo nếu không có sản phẩm */}
+                        </tr>
+                    )}
+                </tbody>
+            </table>
         </div>
     );
 }

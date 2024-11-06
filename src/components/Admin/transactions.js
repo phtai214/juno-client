@@ -1,0 +1,63 @@
+"use client";
+import "../../style/components/admin/Transactions.scss";
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import moment from 'moment';
+
+function Transactions() {
+    const [data, setData] = useState([]);
+
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get(`http://localhost:3001/api/v1/order`);
+                const sortedData = response.data.sort((a, b) => {
+                    // Sort tours based on their id in descending order (newest first)
+                    return b.id - a.id;
+                });
+                setData(sortedData);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    return (
+        <div className="tran-container">
+            <h2 className="tran-title">Latest Transactions</h2>
+            <table className="table">
+                <thead>
+                    <tr>
+                        <td> Name </td>
+                        <td> Status </td>
+                        <td> Date </td>
+                        <td> Amount </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {data.slice(0, 4).map((booking, index) => (
+                        <tr className="order-item" key={index}>
+                            <td>
+                                <div className="tran-user">
+                                    <img className="userImg" src="https://res.cloudinary.com/dhjrrk4pg/image/upload/v1715060332/user_1177568_mxilzq.png" alt="" width={40} height={40} />
+                                    {booking.name}
+                                </div>
+                            </td>
+                            <td>
+                                <div className={`booking-status-${booking.booking_status ? booking.booking_status.toLowerCase() : ''}`}>
+                                    {booking.booking_status}
+                                </div>
+                            </td>
+                            <td>{moment(booking.start_day).format('YYYY-MM-DD')}</td>
+                            <td><em>${booking.total_amount}</em></td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
+    );
+}
+export default Transactions

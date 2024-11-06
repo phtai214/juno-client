@@ -11,6 +11,12 @@ const cartSlice = createSlice({
             // Lưu giỏ hàng vào localStorage mỗi khi có thay đổi
             localStorage.setItem('cartItems', JSON.stringify(action.payload));
         },
+        setTotalAfterPromotion: (state, action) => {
+            state.totalAfterPromotion = action.payload;
+        },
+        setTotalAfterDiscount: (state, action) => {
+            state.totalAfterDiscount = action.payload;
+        },
         addItem: (state, action) => {
             const existingItem = state.items.find(item => item.id === action.payload.id);
             if (existingItem) {
@@ -32,8 +38,11 @@ const cartSlice = createSlice({
             state.items = filteredItems;
             localStorage.setItem('cartItems', JSON.stringify(state.items)); // Lưu vào localStorage
         },
+        updateCartCount: (state, action) => {
+            state.count = action.payload; // Cập nhật count
+        },
     },
 });
 
-export const { setCartItems, addItem, updateQuantity, removeItem } = cartSlice.actions;
+export const { setCartItems, addItem, updateQuantity, removeItem, updateCartCount, setTotalAfterPromotion, setTotalAfterDiscount } = cartSlice.actions;
 export default cartSlice.reducer;

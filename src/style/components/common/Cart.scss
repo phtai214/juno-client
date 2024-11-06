@@ -1,0 +1,145 @@
+.cart-page-container{
+    padding:20px;
+    .cart-page-title{
+        padding-left: 40px;
+        margin: 10px 0 30px 0;
+    }
+    .row.cart-page-box{
+        justify-content: center;
+        margin:0;
+        padding:0;
+        .col-md-7.cart-page-box-item{
+            padding: 0 40px;
+            .cart-page-box-item-data{
+                padding:0;
+                .cart-item-data.row{
+                    padding:0;
+                    margin:0;
+                    .cart-box-data-item.col-md-3{
+                        .cart-item-image-box{
+                            width:100% !important;
+                            height:auto;
+                            object-fit: cover;
+                        }
+                    }
+                    .cart-box-data-item.col-md-8{
+                        display: block;
+                        .cart-box-data-item-name{
+                            margin: 10px 0;
+                        }
+                        .cart-box-data-item-price{
+                            display:flex;
+                            align-items: center;
+                        }
+                        .cart-box-data-item-quantity{
+                            width: 40px;
+                            margin: 5px 10px;
+                            padding: 5px;
+                            border-radius: 5px;
+                            border: 1px solid rgba(51, 51, 51, 0.322);
+                        }
+                        .cart-item-btn-remove {
+                            border: none;
+                            margin: 0 10px;
+                        }
+                    }
+                }
+            }
+            .cart-page-box-note{
+                .note-highlight{
+                    color:rgb(255, 37, 37);
+                    font-weight: 500;
+                }
+            }
+        }
+        .col-md-5.cart-page-box-item{
+            .order-summary-box-all{
+                padding:20px;
+                margin:20px;
+                border: 1px solid #cccccc88;
+                box-shadow: 5px 5px 10px rgba(133, 133, 133, 0.5);
+                .order-summary-title{
+                    padding: 0 10px ;
+                }
+                .order-summary-box{
+                    display:flex;
+                    width:100%;
+                    padding:10px;
+                    justify-content:space-between;
+                    .order-summary{
+                        padding:0;
+                        .total-amount{
+                            margin:0;
+                            padding:5px 0;
+                        }
+                        .total-amount-end{
+                            margin:0;
+                            padding:5px 0;
+                            font-weight: 500;
+                            text-align: end;
+                        }
+                       
+                    }
+                    .order-summary-end{
+                        text-align: end;
+                        .total-amount-end{
+                            margin:0;
+                            padding:0;
+                            font-weight: 500;
+                            text-align: end;
+                            
+                        }
+                        .total-amount-end-hightligh{
+                            color:rgb(252, 50, 50);
+                            margin:0;
+                            font-size: 90%;
+                        }
+                    }
+                }
+                .order-summary-box-top{
+                    border-bottom: 1px solid rgba(0, 0, 0, 0.616);
+                    display:flex;
+                    width:100%;
+                    padding:10px;
+                    justify-content:space-between;
+                    .order-summary{
+                        padding:0;
+                        .total-amount{
+                            margin:0;
+                            padding:5px 0;
+                        }
+                        
+                    }
+                    .order-summary-end{
+                        text-align: end;
+                    }
+                   
+                }
+            }
+            .voucher-container{
+                margin:20px;
+                background-color: rgba(9,153,36,255);
+                display:flex;
+                color:white;
+                justify-content: space-between;
+                padding:10px;
+                align-items:center;
+                .voucher-title{
+                    margin: 0;
+                }
+                .voucher-box{
+                    .voucher-item{
+                        margin:0;
+                        .voucher-image{
+                            width:24px;
+                            height:24px;
+                            object-fit: cover;
+                        }
+                    }
+                }
+            }
+           
+        }
+
+    }
+}

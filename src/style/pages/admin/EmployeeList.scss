@@ -1,0 +1,112 @@
+/* EmployeeList.scss */
+
+$primary-color: #007bff;
+$hover-color: #f4f4f4;
+$table-header-bg: #f4f4f4;
+
+.employee-list-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .filters {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+
+        select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            flex: 1;
+            margin-right: 10px;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+
+    .employee-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+
+        th {
+            background-color: $table-header-bg;
+        }
+
+        tr:hover {
+            background-color: $hover-color;
+        }
+    }
+    .delete-confirmation {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        padding: 20px;
+        border: 1px solid #ccc;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        text-align: center;
+    
+        p {
+            margin-bottom: 15px;
+        }
+    
+        button {
+            margin: 0 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    }
+    .pagination {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        padding: 0;
+
+        li {
+            margin: 0 5px;
+
+            a {
+                padding: 10px 15px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                text-decoration: none;
+                color: #333;
+
+                &:hover {
+                    background-color: $hover-color;
+                }
+            }
+        }
+
+        .active a {
+            background-color: $primary-color;
+            color: white;
+            border: 1px solid $primary-color;
+        }
+    }
+}

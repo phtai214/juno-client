@@ -20,6 +20,14 @@ import Product from "./pages/admin/Product.js";
 import UsersPage from "./pages/admin/User.js";
 import ProductCreateForm from "./pages/admin/ProductCreateForm.js"
 import Cookies from 'js-cookie';
+import UserView from "./pages/customer/UserView.js";
+import ProductSearch from "./pages/customer/ProductSearch.js";
+import OrderUpdate from "./pages/admin/UpdateOrder.js";
+import NewProduct from "./pages/customer/NewProduct.js";
+import AddEmployee from "./components/Admin/AddEmployee.js";
+import EmployeePermissions from "./components/Admin/EmployeePermissions.js";
+import ProductList from "./pages/customer/ProductList.js";
+import ProductAll from "./pages/customer/ProductAll.js"
 const App = () => {
   const dispatch = useDispatch();
   const auth = useSelector((state) => state.auth);
@@ -41,8 +49,13 @@ const App = () => {
         <Route path="home" element={<Home />} />
         <Route path="profile" element={isAuthenticated ? <Profile /> : <Navigate to="/login" />} />
         <Route path="product/slug/:slug" element={<ProductDetail />} />
+        <Route path="new-product" element={<NewProduct />} />
+        <Route path="product/search" element={<ProductSearch />} />
         <Route path="cart" element={<Cart />} />
         <Route path="checkout" element={isAuthenticated ? <Checkout /> : <Navigate to="/login" />} />
+        <Route path="user-view/:id" element={<UserView />} />
+        <Route path="product-all" element={<ProductAll />} />
+        <Route path="/customer/product/BST/:category" element={<ProductList />} />
       </Route>
 
       {/* Routes dành cho admin */}
@@ -51,9 +64,14 @@ const App = () => {
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="user" element={<UsersPage />} />
           <Route path="orders" element={<Orders />} />
+          <Route path="orders/update/:id" element={<OrderUpdate />} />
           <Route path="employees" element={<Employees />} />
+          <Route path="employees/add" element={<AddEmployee />} />
+          <Route path="employees/employee-permissions" element={<EmployeePermissions />} />
           <Route path="products" element={<Product />} />
+
           <Route path="products/create" element={<ProductCreateForm />} />
+
         </Route>
       )}
 
@@ -61,7 +79,11 @@ const App = () => {
       {user?.role === 'employee' && (
         <Route path="/employee" element={<EmployeeLayout />}>
           <Route path="dashboard" element={<Dashboard />} />
+          <Route path="user" element={<UsersPage />} />
           <Route path="orders" element={<Orders />} />
+          <Route path="orders/update/:id" element={<OrderUpdate />} />
+          <Route path="products" element={<Product />} />
+          <Route path="products/create" element={<ProductCreateForm />} />
         </Route>
       )}
 

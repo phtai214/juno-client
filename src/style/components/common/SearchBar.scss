@@ -22,6 +22,12 @@
                     border-bottom: 1px solid #2D2D2D; // Đổi màu viền khi focus
                 }
             }
+            &.input-active .searchInput {
+                width: 120px; // Giữ chiều rộng khi có data
+                padding: 5px;
+                background-color: rgba(247, 247, 247, 0.9);
+                border-bottom: 1px solid rgba(141, 141, 141, 0.575);
+            }
 
             // Hiển thị chữ "Tìm kiếm"
             .searchHint {

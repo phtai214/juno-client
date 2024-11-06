@@ -20,6 +20,7 @@ const Register = () => {
         };
 
         try {
+
             // Gọi API đăng ký
             const response = await axios.post(`http://localhost:3001/api/v1/auth/signup`, userData);
             if (response.data.success) {

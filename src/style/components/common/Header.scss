@@ -80,8 +80,8 @@
                             .sub-menu.megaMenu {
                                 display: none; /* Ẩn sub-menu mặc định */
                                 position: absolute; /* Định vị sub-menu */
-                                width: 1300px; /* Đảm bảo sub-menu rộng bằng nav-item */
-                                left: -500px; /* Căn lề trái */
+                                width: max-content; /* Đảm bảo sub-menu rộng bằng nav-item */
+                                left: 0%; /* Căn lề trái */
                                 border-top: none;
                                 top: 100%; /* Đưa sub-menu xuống dưới nav-item */
                                 padding: 15px 0;
@@ -100,7 +100,6 @@
                             .sub-menu.megaMenu .sub-menu-data {
                                 padding: 0 15px; /* Padding cho các mục con */
                                 color: #333; /* Màu chữ mặc định */
-                                width: 20%;
                                 a {
                                     padding: 10px; /* Padding cho link trong sub-menu */
                                     display: block; /* Đảm bảo link chiếm toàn bộ chiều cao */

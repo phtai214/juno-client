@@ -71,37 +71,12 @@ const ProductCreateForm = () => {
         setProductImages(selectedFiles);
     };
 
-    const handleVariationImageChange = async (index, e) => {
+    const handleVariationImageChange = (index, e) => {
         const file = e.target.files[0];
         if (file) {
-            // Kiểm tra xem file đã được tải lên chưa
-            if (uploadedImageUrls.has(file.name)) {
-                const existingUrl = uploadedImageUrls.get(file.name);
-                const updatedVariations = [...variations];
-                updatedVariations[index].imageUrl = existingUrl; // Sử dụng URL đã tồn tại
-                setVariations(updatedVariations);
-                return;
-            }
-
-            // Tải lên file mới
-            const formData = new FormData();
-            formData.append('file', file);
-            formData.append('upload_preset', 'your_upload_preset'); // Thay thế bằng preset của bạn
-
-            try {
-                const response = await axios.post('https://api.cloudinary.com/v1_1/your_cloud_name/image/upload', formData);
-                const imageUrl = response.data.secure_url;
-
-                // Cập nhật biến thể với URL mới
-                const updatedVariations = [...variations];
-                updatedVariations[index].imageUrl = imageUrl;
-                setVariations(updatedVariations);
-
-                // Lưu URL vào mảng đã tải lên
-                setUploadedImageUrls(prev => new Map(prev).set(file.name, imageUrl));
-            } catch (error) {
-                console.error('Error uploading image:', error);
-            }
+            const newVariations = [...variations];
+            newVariations[index].imageUrl = file; // Lưu tệp thực tế
+            setVariations(newVariations);
         }
     };
 
@@ -140,8 +115,8 @@ const ProductCreateForm = () => {
                 formData.append(`variations[${index}][size]`, variation.size);
                 formData.append(`variations[${index}][color]`, variation.color);
                 formData.append(`variations[${index}][quantity]`, variation.quantity);
-                if (variation.imageUrl) { // Đảm bảo tên trường đúng
-                    formData.append(`variations[${index}][image]`, variation.imageUrl);
+                if (variation.imageUrl) { // Thêm tệp hình ảnh vào FormData
+                    formData.append(`variations[${index}][image]`, variation.imageUrl)
                 }
             });
 

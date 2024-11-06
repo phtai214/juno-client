@@ -12,18 +12,17 @@
             border-radius: 10px;
         }
     }
-    .product-box.row{
+    .table{
         margin:0;
         padding:0;
-        .product-item.col-md-3.col-sm-3{
+        .product-item{
             border-radius: 15px;
             background-color: white;
             padding:0;
             width:calc(25% - 20px);
-            margin: 10px;
-            
+            margin: 10px;  
             .product-item-image{
-                width:100%;
+                width:100px;
                 height:auto;
                 object-fit: cover;
                 border-top-left-radius: 15px;

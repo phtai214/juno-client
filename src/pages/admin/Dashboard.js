@@ -4,7 +4,9 @@ import AnalyticsCard from "../../components/Admin/AnalyticsCard";
 import OrderAnalyticsCard from "../../components/Admin/OrderAnalyticsCard";
 import RevenueAnalyticsCard from '../../components/Admin/RevenueAnalyticsCard';
 import ReviewAnalyticsCard from "../../components/Admin/ReviewAnalyticsCard"
-import "../../style/components/admin/AnalyticsCard.scss"
+import "../../style/components/admin/AnalyticsCard.scss";
+import Chart from "../../components/Admin/Chart";
+import Transactions from "../../components/Admin/transactions"
 const Dashboard = () => {
     return (
         <div className="dashboard-container">
@@ -16,7 +18,8 @@ const Dashboard = () => {
                     <RevenueAnalyticsCard />
                     <ReviewAnalyticsCard />
                 </div>
-
+                <Transactions />
+                <Chart />
             </div>
         </div>
     );

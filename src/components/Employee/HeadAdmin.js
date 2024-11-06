@@ -28,22 +28,19 @@ const HeadAdmin = () => {
                                 {userRole === 'admin' && (
                                     <>
                                         <li className="nav-item">
-                                            <Link className={`nav-link ${location.pathname === '/admin/dashboard' ? 'active' : ''}`} to="/admin/dashboard"><span className="admin-icon">{icons.home}</span> Dashboard</Link>
+                                            <Link className={`nav-link ${location.pathname === '/employees/dashboard' ? 'active' : ''}`} to="/admin/dashboard"><span className="admin-icon">{icons.home}</span> Dashboard</Link>
                                         </li>
                                         <li className="nav-item">
-                                            <Link className={`nav-link ${location.pathname === '/admin/user' ? 'active' : ''}`} to="/admin/user"><span className="admin-icon">{icons.user}</span> Users</Link>
+                                            <Link className={`nav-link ${location.pathname === '/employees/user' ? 'active' : ''}`} to="/admin/user"><span className="admin-icon">{icons.user}</span> Users</Link>
                                         </li>
                                         <li className="nav-item">
-                                            <Link className={`nav-link ${location.pathname === '/admin/products' ? 'active' : ''}`} to="/admin/products"> <span className="admin-icon">{icons.product}</span> Product</Link>
+                                            <Link className={`nav-link ${location.pathname === '/employees/products' ? 'active' : ''}`} to="/admin/products"> <span className="admin-icon">{icons.product}</span> Product</Link>
                                         </li>
                                         <li className="nav-item">
-                                            <Link className={`nav-link ${location.pathname === '/admin/orders' ? 'active' : ''}`} to="/admin/orders"><span className="admin-icon">{icons.order}</span> Order</Link>
+                                            <Link className={`nav-link ${location.pathname === '/employees/orders' ? 'active' : ''}`} to="/admin/orders"><span className="admin-icon">{icons.order}</span> Order</Link>
                                         </li>
                                         <li className="nav-item">
-                                            <Link className={`nav-link ${location.pathname === '/admin/employees' ? 'active' : ''}`} to="/admin/employees"><span className="admin-icon">{icons.employees}</span> Employees</Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link className={`nav-link ${location.pathname === '/admin/settings' ? 'active' : ''}`} to="/admin/settings"><span className="admin-icon">{icons.settings}</span> Setting</Link>
+                                            <Link className={`nav-link ${location.pathname === '/employees/settings' ? 'active' : ''}`} to="/admin/settings"><span className="admin-icon">{icons.settings}</span> Setting</Link>
                                         </li>
                                     </>
                                 )}

@@ -222,5 +222,36 @@
             }
         }
     }
+    .reviews-section{
+        width:90%;
+        margin:0 auto;
+        .review-form{
+            .rating{
+                .star{
+                    width: 24px; /* Kích thước sao */
+                    height: 24px;
+                    cursor: pointer;
+                    margin:5px;
+                }
+            }
+            
+        }
+        .review-list{
+            .review-item{
+                .user-avatar{
+                    width: 34px;
+                    height:34px;
+                    object-fit: cover;
+                    border-radius: 50%;
+                }
+                .star{
+                    width: 20px; /* Kích thước sao */
+                    height: 20px;
+                    cursor: pointer;
+                    margin:2px;
+                }
+            }
+        }
+    }
     
 }
